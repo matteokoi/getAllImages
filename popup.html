@@ -45,34 +45,3 @@
 </body>
 
 </html>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var alertButton = document.getElementById('alertButton');
-        alertButton.addEventListener('click', function () {
-            if (confirm('Do you want to download all these images? Remember to allow the multiple download from your browser...')) {
-                (function () {
-                    function downloadImage(url, name) {
-                        var a = document.createElement('a');
-                        a.href = url;
-                        a.download = name;
-                        document.body.appendChild(a);
-                        a.click();
-                        document.body.removeChild(a);
-                    }
-
-                    function downloadAllImages() {
-                        var images = document.querySelectorAll('img');
-                        images.forEach(function (img, index) {
-                            var url = img.src;
-                            var name = 'image' + (index + 1) + '.' + url.split('.').pop().split(/\#|\?/)[0];
-                            downloadImage(url, name);
-                        });
-                    }
-
-                    downloadAllImages();
-                })();
-            }
-        });
-    });
-</script>
