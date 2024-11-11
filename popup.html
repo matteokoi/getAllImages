@@ -2,11 +2,53 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Simple Alert</title>
+    <title>Stylish Alert Extension</title>
+    <style>
+      /* CSS styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
   </head>
   <body>
-    <h1>Click the button to see an alert</h1>
+    <h1>Click the button to see a stylish alert</h1>
     <button id="alertButton">Show Alert</button>
-    <script src="getAll.js></script>
+    <script src="getAll.js"></script>
   </body>
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var alertButton = document.getElementById('alertButton');
+    alertButton.addEventListener('click', function() {
+      alert('Hello from the Chrome extension!');
+    });
+  });
+</script>
