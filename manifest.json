@@ -1,0 +1,9 @@
+{
+    "manifest_version": 2,
+    "name": "Simple Alert Extension",
+    "version": "1.0",
+    "description": "A basic Chrome extension that displays an alert",
+    "browser_action": {
+      "default_popup": "popup.html"
+    }
+  }
