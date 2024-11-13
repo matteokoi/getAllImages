@@ -1,0 +1,87 @@
+#generalContainer {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: white;
+    padding: 10px;
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    width: 300px;
+}
+
+#closeContainer {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 2px 5px;
+    cursor: pointer;
+    background-color: #ff4444;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 12px;
+}
+
+.downloadAll {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.divParent {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+
+.divChild {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.imgList {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.spanList {
+    color: #0073e6;
+    margin-right: 10px;
+}
+
+.imgDownload {
+    padding: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 12px;
+}
+
+.removeFromListBtn {
+
+    padding: 5px;
+    cursor: pointer;
+    background-color: #ff4444;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 12px;
+}
+
+.gapDiv {
+    display: flex;
+    gap: 5px;
+}
