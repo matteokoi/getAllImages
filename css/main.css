@@ -1,87 +1,139 @@
-#generalContainer {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: white;
+.ext-navbar {
+    display: flex;
+    justify-content: center;
     padding: 10px;
+    background-color: black;
+    border-bottom: 0;
+    position: sticky;
+    top: 0;
     z-index: 1000;
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    width: 300px;
 }
 
-#closeContainer {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 2px 5px;
-    cursor: pointer;
-    background-color: #ff4444;
-    border: none;
-    border-radius: 3px;
+.ext-nav-button {
     color: white;
-    font-size: 12px;
-}
-
-.downloadAll {
     padding: 5px 10px;
+    margin-left: 10px;
+    border: 0;
+    border-radius: 4px;
+    background-color: transparent;
     cursor: pointer;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 3px;
-    color: white;
-    font-size: 12px;
-    margin-bottom: 10px;
 }
 
-.divParent {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-    justify-content: space-between;
+
+.ext-image-list-container {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: #20272F !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1) !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    z-index: 9998 !important;
+    width: 400px !important;
 }
 
-.divChild {
-    display: flex;
-    align-items: center;
-    flex: 1;
+.ext-image-list-row {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 10px !important;
+    padding: 10px !important;
+    border: 0;
+    border-radius: 4px !important;
+    gap: 10px !important;
 }
 
-.imgList {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    margin-right: 10px;
+.ext-image-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100px !important;
 }
 
-.spanList {
-    color: #0073e6;
-    margin-right: 10px;
+.ext-image-thumbnail {
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: cover !important;
+    border-radius: 4px !important;
+    margin-bottom: 5px !important;
 }
 
-.imgDownload {
-    padding: 5px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 3px;
-    color: white;
-    font-size: 12px;
+.ext-file-name {
+    max-width: 100px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-size: 12px !important;
+    text-align: center !important;
+    color: #666 !important;
 }
 
-.removeFromListBtn {
-
-    padding: 5px;
-    cursor: pointer;
-    background-color: #ff4444;
-    border: none;
-    border-radius: 3px;
-    color: white;
-    font-size: 12px;
+.ext-info-container {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    min-width: 0 !important;
+    font-size: 12px !important;
+    color: #666 !important;
 }
 
-.gapDiv {
-    display: flex;
-    gap: 5px;
+.ext-dimensions, .ext-size {
+    white-space: nowrap !important;
+}
+
+.ext-buttons-container {
+    display: flex !important;
+    gap: 5px !important;
+    margin-left: auto !important;
+}
+
+.ext-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px !important;
+    border: 0;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    width: 32px !important;
+    height: 32px !important;
+    transition: all 0.3s ease !important;
+    font-size: 16px !important;
+    background: transparent !important;
+}
+
+.ext-button:hover {
+    background-color: #f5f5f5 !important;
+    transform: scale(1.1) !important;
+}
+
+.ext-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0,0,0,0.8) !important;
+    z-index: 9999 !important;
+}
+
+.ext-modal-content {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-width: 90% !important;
+    max-height: 90% !important;
+}
+
+.ext-modal-close {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    color: white !important;
+    font-size: 30px !important;
+    cursor: pointer !important;
 }

@@ -4,12 +4,21 @@
     "version": "1.0",
     "description": "A Chrome extension that displays an list of all images from a web page and permits the download",
     "action": {
-      "default_popup": "popup.html"
+      "default_popup": "popup.html",
+      "default_width": 600,
+      "default_height": 500
     },
     "icons": {
       "16": "images/16_pic.png",
       "32": "images/32_pic.png",
       "48": "images/48_pic.png",
       "128": "images/128_pic.png"
-    }
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "css": ["css/main.css", "css/popup.css"],
+        "js": ["js/alfred.js", "js/getAll.js", "js/popup.js"]
+      }
+    ]
   }
