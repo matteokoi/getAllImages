@@ -1,5 +1,11 @@
+const IMAGE_DEFAULT = 'image.png';
 const DOWNLOAD_ALL_IMAGES = 'Download All Images';
 const DOWNLOAD_ALL = 'Download all';
+const DOWNLOAD = 'Download';
 const REMOVE_FROM_LIST = 'Remove from List';
 const CLOSE = 'Close';
+const CLOSE_LIST = 'Close list';
 const IMAGES = 'Images';
+const PREVIEW = 'Preview';
+const FAIL_DOWNLOAD = 'Failed to download image';
+const ERROR_DOWNLOAD = 'Error downloading image:';

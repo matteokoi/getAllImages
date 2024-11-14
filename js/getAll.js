@@ -116,7 +116,7 @@ async function createImageList() {
     // Download all button
     const downloadAllBtn = document.createElement('button');
     downloadAllBtn.setAttribute('class', 'ext-nav-button');
-    downloadAllBtn.setAttribute('title', 'Download all images');
+    downloadAllBtn.setAttribute('title', DOWNLOAD_ALL_IMAGES);
     downloadAllBtn.innerHTML = `
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
@@ -127,7 +127,7 @@ async function createImageList() {
     // Close button
     const closeListBtn = document.createElement('button');
     closeListBtn.setAttribute('class', 'ext-nav-button');
-    closeListBtn.setAttribute('title', 'Close list');
+    closeListBtn.setAttribute('title', CLOSE_LIST);
     closeListBtn.innerHTML = `
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
@@ -182,12 +182,12 @@ async function createImageList() {
 
     // Hide loading spinner after initial list creation
     loadingSpinner.style.display = 'none';
-    
+
     // Process each image
     for (const img of images) {
         if (img.src) {
             const imageInfo = await getImageInfo(img.src);
-            const fileName = img.src.split('/').pop() || 'image.png';
+            const fileName = img.src.split('/').pop() || IMAGE_DEFAULT;
 
             const row = document.createElement('div');
             row.setAttribute('class', 'ext-image-list-row');
@@ -235,7 +235,7 @@ async function createImageList() {
             const previewBtn = document.createElement('button');
             previewBtn.innerHTML = '👁️';
             previewBtn.setAttribute('class', 'ext-button');
-            previewBtn.setAttribute('title', 'Preview');
+            previewBtn.setAttribute('title', PREVIEW);
             previewBtn.onclick = () => {
                 modal.style.display = 'block';
                 modal.querySelector('.ext-modal-content').src = img.src;
@@ -245,7 +245,7 @@ async function createImageList() {
             const downloadBtn = document.createElement('button');
             downloadBtn.innerHTML = '⬇️';
             downloadBtn.setAttribute('class', 'ext-button');
-            downloadBtn.setAttribute('title', 'Download');
+            downloadBtn.setAttribute('title', DOWNLOAD);
             downloadBtn.onclick = async () => {
                 try {
                     const response = await fetch(img.src);
@@ -259,8 +259,8 @@ async function createImageList() {
                     document.body.removeChild(a);
                     window.URL.revokeObjectURL(url);
                 } catch (error) {
-                    console.error('Error downloading image:', error);
-                    alert('Failed to download image');
+                    console.error(ERROR_DOWNLOADERROR_DOWNLOAD, error);
+                    alert(FAIL_DOWNLOAD);
                 }
             };
 
@@ -268,7 +268,7 @@ async function createImageList() {
             const removeBtn = document.createElement('button');
             removeBtn.innerHTML = '🗑️';
             removeBtn.setAttribute('class', 'ext-button');
-            removeBtn.setAttribute('title', 'Remove from list');
+            removeBtn.setAttribute('title', REMOVE_FROM_LIST);
             removeBtn.onclick = () => {
                 row.remove();
             };
