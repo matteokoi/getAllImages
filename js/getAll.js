@@ -20,7 +20,7 @@ async function getImageInfo(url) {
         const response = await fetch(url);
         const blob = await response.blob();
         const size = blob.size;
-        
+
         return new Promise((resolve) => {
             const img = new Image();
             img.onload = () => {
@@ -51,7 +51,7 @@ async function downloadAllImages() {
     for (const row of rows) {
         const thumbnail = row.querySelector('.ext-image-thumbnail');
         const fileName = row.querySelector('.ext-file-name').textContent;
-        
+
         try {
             const response = await fetch(thumbnail.src);
             const blob = await response.blob();
@@ -63,7 +63,7 @@ async function downloadAllImages() {
             a.click();
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
-            
+
             // Add a small delay between downloads to prevent overwhelming the browser
             await new Promise(resolve => setTimeout(resolve, 500));
         } catch (error) {
@@ -88,7 +88,7 @@ async function createImageList() {
     // Create container
     imageListContainer = document.createElement('div');
     imageListContainer.setAttribute('class', 'ext-image-list-container');
-    
+
     // Create navbar
     const navbar = document.createElement('div');
     navbar.setAttribute('class', 'ext-navbar');
@@ -97,9 +97,22 @@ async function createImageList() {
     const title = document.createElement('div');
     title.setAttribute('class', 'ext-nav-title');
 
- const navButtons = document.createElement('div');
+    const navButtons = document.createElement('div');
     navButtons.setAttribute('class', 'ext-nav-buttons');
-    
+
+    // Counter
+    const counter = document.createElement('div');
+    counter.setAttribute('class', 'ext-nav-counter');
+
+    // Loading spinner
+    const loadingSpinner = document.createElement('div');
+    loadingSpinner.setAttribute('class', 'ext-nav-loading');
+    loadingSpinner.innerHTML = `
+          <svg class="ext-loading-icon" viewBox="0 0 24 24">
+              <circle class="circle" cx="12" cy="12" r="10" fill="none" stroke-width="4"></circle>
+          </svg>
+      `;
+
     // Download all button
     const downloadAllBtn = document.createElement('button');
     downloadAllBtn.setAttribute('class', 'ext-nav-button');
@@ -110,7 +123,7 @@ async function createImageList() {
         </svg>
     `;
     downloadAllBtn.onclick = downloadAllImages;
-    
+
     // Close button
     const closeListBtn = document.createElement('button');
     closeListBtn.setAttribute('class', 'ext-nav-button');
@@ -124,21 +137,23 @@ async function createImageList() {
         imageListContainer.remove();
         imageListContainer = null;
     };
-    
+
     // Add buttons to navbar
+    navbar.appendChild(counter);
+    navbar.appendChild(loadingSpinner);
     navButtons.appendChild(downloadAllBtn);
     navButtons.appendChild(closeListBtn);
-    
+
     // Add buttons to navbar
     navbar.appendChild(downloadAllBtn);
     navbar.appendChild(closeListBtn);
 
     navbar.appendChild(title);
     navbar.appendChild(navButtons);
-    
+
     // Add navbar to container
     imageListContainer.appendChild(navbar);
-    
+
     // Add container to document
     document.body.appendChild(imageListContainer);
 
@@ -160,7 +175,14 @@ async function createImageList() {
 
     // Get all images
     const images = Array.from(document.getElementsByTagName('img'));
+    const totalImages = images.length;
 
+    // Update counter
+    counter.textContent = `${totalImages} images`;
+
+    // Hide loading spinner after initial list creation
+    loadingSpinner.style.display = 'none';
+    
     // Process each image
     for (const img of images) {
         if (img.src) {

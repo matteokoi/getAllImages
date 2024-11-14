@@ -1,7 +1,8 @@
-
-document.getElementById('toggleButton').addEventListener('click', () => {
-    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, {action: 'toggleImageList'});
-        window.close();
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('toggleButton').addEventListener('click', () => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'toggleImageList' });
+            window.close();
+        });
     });
 });
